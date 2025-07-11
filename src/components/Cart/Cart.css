@@ -1,0 +1,13 @@
+.cartItem button {
+  background-color: #007bff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #0056b3;
+}
