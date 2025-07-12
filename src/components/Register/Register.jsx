@@ -25,17 +25,24 @@ export default function Register() {
 
 
   const onSubmit = (data) => {
-    console.log('Registration Data:', data);
-    alert('Form submitted successfully!');
-    console.log('email', data.email)
-    localStorage.setItem('user', JSON.stringify({
-      email: data.email,
-      password: data.password
-    }));
-    setLogged(true)
-    navigate('/products')
+  console.log('Registration Data:', data);
+  alert('Form submitted successfully!');
+  console.log('email', data.email);
 
+  const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+  const newUser = {
+    email: data.email,
+    password: data.password
   };
+
+  existingUsers.push(newUser);
+
+  localStorage.setItem('users', JSON.stringify(existingUsers));
+
+  setLogged(true);
+  navigate('/products');
+};
 
   const password = watch('password');
 
